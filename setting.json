@@ -2,12 +2,17 @@
     "workbench.iconTheme": "file-icons",
     "workbench.colorTheme": "Drakula",
     
-    // ===== VIM EXTENSION COMPLETELY DISABLED =====
-    "vim.enabled": false,
+    // ===== RE-ENABLE VIM =====
+    "vim.enabled": true,
     
-    // ===== CRITICAL TERMINAL SETTINGS =====
+    // ===== FIX TERMINAL =====
+    "vim.disableForTerminal": true,
     "terminal.integrated.sendKeybindingsToShell": true,
-    "terminal.integrated.allowChords": false,
+    
+    // Vim settings
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
     
     // UI settings...
     "workbench.sideBar.location": "left",

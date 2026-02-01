@@ -11,56 +11,42 @@
         "when": "!terminal.active"
     },
     
-    // ===== CRITICAL: FIX SPACE IN TERMINAL =====
-    {
-        "key": "space",
-        "command": "workbench.action.terminal.sendSequence",
-        "args": { "text": " " },
-        "when": "terminalFocus"
-    },
-    
-    // ===== SPACE AS LEADER (EDITOR ONLY) =====
-    {
-        "key": "space",
-        "command": "noop",
-        "when": "editorTextFocus"
-    },
-    
-    // Space combinations - EDITOR ONLY
+    // ===== SPACE AS VIM LEADER =====
+    // Space combinations - VIM NORMAL MODE ONLY
     {
         "key": "space space",
         "command": "workbench.action.quickOpen",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     {
         "key": "space e",
         "command": "workbench.view.explorer",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     {
         "key": "space p",
         "command": "workbench.action.quickOpen",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     {
         "key": "space f",
         "command": "workbench.action.findInFiles",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     {
         "key": "space s",
         "command": "workbench.action.files.save",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     {
         "key": "space w",
         "command": "workbench.action.files.saveAll",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     {
         "key": "space q",
         "command": "workbench.action.closeActiveEditor",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     
     // ===== TAB NAVIGATION =====
@@ -73,16 +59,6 @@
         "key": "shift+tab",
         "command": "workbench.action.quickOpenSelectPrevious", 
         "when": "inQuickOpen"
-    },
-    {
-        "key": "tab",
-        "command": "search.focus.nextInputBox",
-        "when": "searchViewletFocus"
-    },
-    {
-        "key": "shift+tab",
-        "command": "search.focus.previousInputBox",
-        "when": "searchViewletFocus"
     },
     
     // ===== FILE EXPLORER OPERATIONS =====
@@ -125,37 +101,17 @@
     // ===== TAB NAVIGATION (NeoVim style) =====
     {
         "key": "shift+l",
-        "command": "workbench.action.nextEditor"
+        "command": "workbench.action.nextEditor",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     {
         "key": "shift+h",
-        "command": "workbench.action.previousEditor"
+        "command": "workbench.action.previousEditor",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     
-    // ===== QUICK ACCESS =====
-    {
-        "key": "ctrl+p",
-        "command": "workbench.action.quickOpen"
-    },
-    {
-        "key": "ctrl+shift+p",
-        "command": "workbench.action.showCommands"
-    },
-    
-    // ===== WINDOW SPLITTING =====
-    {
-        "key": "ctrl+w v",
-        "command": "workbench.action.splitEditorRight",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+w s",
-        "command": "workbench.action.splitEditorDown",
-        "when": "editorTextFocus"
-    },
-    
-    // ===== WINDOW NAVIGATION (FIXED) =====
-    // Remove editorTextFocus condition so these work everywhere
+    // ===== WINDOW NAVIGATION (FIXED - Remove vim.mode condition) =====
+    // These should work EVERYWHERE, not just in Normal mode
     {
         "key": "ctrl+h",
         "command": "workbench.action.navigateLeft"
@@ -173,42 +129,32 @@
         "command": "workbench.action.navigateRight"
     },
     
+    // ===== WINDOW SPLITTING =====
+    {
+        "key": "ctrl+w v",
+        "command": "workbench.action.splitEditorRight",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+w s",
+        "command": "workbench.action.splitEditorDown",
+        "when": "editorTextFocus && vim.mode == 'Normal'"
+    },
+    
     // ===== BUFFER OPERATIONS =====
     {
         "key": "ctrl+w c",
         "command": "workbench.action.closeActiveEditor",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     {
         "key": "ctrl+w o",
         "command": "workbench.action.closeOtherEditors",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && vim.mode == 'Normal'"
     },
     
-    // ===== VIM-STYLE NAVIGATION IN SEARCH =====
-    {
-        "key": "j",
-        "command": "list.focusDown",
-        "when": "searchViewletFocus && listFocus && !inputFocus"
-    },
-    {
-        "key": "k",
-        "command": "list.focusUp",
-        "when": "searchViewletFocus && listFocus && !inputFocus"
-    },
-    {
-        "key": "j",
-        "command": "selectNextQuickOpenItem",
-        "when": "inQuickOpen"
-    },
-    {
-        "key": "k",
-        "command": "selectPrevQuickOpenItem",
-        "when": "inQuickOpen"
-    },
-    
-    // ===== ADD THIS: FOCUS EDITOR FROM EXPLORER =====
-    // This helps move focus from file explorer to editor
+    // ===== FOCUS NAVIGATION (FIXED) =====
+    // These help move between sidebar and editor
     {
         "key": "ctrl+l",
         "command": "workbench.action.focusActiveEditorGroup",
