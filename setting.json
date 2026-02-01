@@ -1,0 +1,28 @@
+{
+    "workbench.iconTheme": "file-icons",
+    "workbench.colorTheme": "Drakula",
+    
+    // ===== VIM EXTENSION COMPLETELY DISABLED =====
+    "vim.enabled": false,
+    
+    // ===== CRITICAL TERMINAL SETTINGS =====
+    "terminal.integrated.sendKeybindingsToShell": true,
+    "terminal.integrated.allowChords": false,
+    
+    // UI settings...
+    "workbench.sideBar.location": "left",
+    "window.titleBarStyle": "custom",
+    "editor.minimap.enabled": false,
+    "editor.scrollBeyondLastLine": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.cursorBlinking": "phase",
+    "explorer.openEditors.visible": 1,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.cursorBlinking": true,
+    "editor.hover.enabled": "off",
+    "editor.parameterHints.enabled": false,
+    "editor.suggestOnTriggerCharacters": false,
+    "files.autoSave": "afterDelay"
+}
